@@ -1,0 +1,69 @@
+<div *ngIf="recipe">
+    <div class="row">
+        <div class="col-8 align-self-center">
+            <h1>{{recipe.name}}</h1>
+        </div>
+        <div class="col-4 align-self-center text-right">
+            <div appDropdown class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Manage recipe
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" (click)="delete(recipe)">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 text-center">
+            <img [src]="recipe.imagePath" class="img-fluid" alt="No image"
+                 style=" max-width: 500px; max-height: 300px">
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12 h6 text-justify">
+            {{recipe.description}}
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-7 h5 text-left align-self-center no-gutters">Ingredients:</div>
+        <div class="col-5 text-right">
+            <button class="btn btn-dark" (click)="exportToShoppingList()"> Export to shopping list</button>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="displayExportMsg" class="row">
+        <div class="col-12">
+            <div class="alert alert-success" role="alert">
+                Successfully exported! Redirecting to list ...
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let ingredient of recipe.ingredients" class="list-group-item list-group-item-dark">
+                    <div class="row">
+                        <div class="col-10">{{ingredient.name}}</div>
+                        <div class="col-2">{{ingredient.amount}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div *ngIf="!recipe">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 text-center h4">Select or create recipe</div>
+        <div class="col-1"></div>
+    </div>
+</div>

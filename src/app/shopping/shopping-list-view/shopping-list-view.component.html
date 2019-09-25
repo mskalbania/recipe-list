@@ -1,0 +1,24 @@
+<div class="row">
+    <h3>Shopping list</h3>
+</div>
+<br>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-11">
+        <app-shopping-list-edit></app-shopping-list-edit>
+    </div>
+    <div class="col"></div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-light rounded" style="margin-bottom: 5px"
+                *ngFor="let ingredient of ingredients">
+                <app-shopping-list-element [ingredient]="ingredient"></app-shopping-list-element>
+            </li>
+        </ul>
+    </div>
+    <div class="col-3"></div>
+</div>

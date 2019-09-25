@@ -1,0 +1,16 @@
+<div class="list-group">
+    <a [routerLink]="['/recipes',recipe.id]" *ngFor="let recipe of recipes"
+       [routerLinkActive]="['active']"
+       class="list-group-item list-group-item-action list-group-item-dark">
+        <div class="row">
+            <div class="col-7" style="padding-left: 25px">
+                <div class="row h5">{{recipe.name}}</div>
+                <div class="row text-truncate">{{recipe.description}}</div>
+            </div>
+            <div class="col-5 text-center">
+                <img [src]="recipe.imagePath" class="img-thumbnail" alt="No image"
+                     style="max-height: 100px; max-width: 200px">
+            </div>
+        </div>
+    </a>
+</div>
